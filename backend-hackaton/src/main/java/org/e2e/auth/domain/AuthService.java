@@ -4,6 +4,7 @@ import org.e2e.auth.dto.AuthResponseDto;
 import org.e2e.auth.dto.LoginRequestDto;
 import org.e2e.auth.dto.RegisterRequestDto;
 import org.e2e.auth.exceptions.UserAlreadyExistException;
+import org.e2e.chat.Chat;
 import org.e2e.config.JwtService;
 
 import org.e2e.user.domain.Role;
@@ -17,7 +18,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.ZonedDateTime;
-import java.util.Optional;
 
 @Service
 public class AuthService {
@@ -40,31 +40,27 @@ public class AuthService {
         User user = userRepository.findByEmail(req.getEmail())
                 .orElseThrow(() -> new UsernameNotFoundException("Email is not registered"));
 
-        // Valida la contraseña
         if (!passwordEncoder.matches(req.getPassword(), user.getPassword())) {
             throw new IllegalArgumentException("Password is incorrect");
         }
 
-        // Genera el token y devuelve la respuesta
         AuthResponseDto response = new AuthResponseDto();
         response.setToken(jwtService.generateToken(user));
         return response;
     }
     public AuthResponseDto register(RegisterRequestDto registerRequestDto) {
-        // Verifica si el usuario ya existe
+
         if (userRepository.findByEmail(registerRequestDto.getEmail()).isPresent()) {
             throw new UserAlreadyExistException("User already exists with this email");
         }
 
-        // Mapea el DTO al objeto de dominio `User`
         User user = modelMapper.map(registerRequestDto, User.class);
         user.setPassword(passwordEncoder.encode(registerRequestDto.getPassword())); // Cifra la contraseña
         user.setRole(Role.USER); // Asigna un rol por defecto
         user.setCreatedAt(ZonedDateTime.now()); // Fecha de creación
 
-        // Guarda el usuario en la base de datos
+        user.setUpdatedAt(ZonedDateTime.now());
         userRepository.save(user);
-
         // Genera el token y devuelve la respuesta
         AuthResponseDto response = new AuthResponseDto();
         response.setToken(jwtService.generateToken(user));

@@ -2,6 +2,7 @@ package org.e2e.user.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import org.e2e.chat.Chat;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,6 +22,9 @@ public class User implements UserDetails {
 
     @Column(name = "role", nullable = false)
     private Role role;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Chat> chat;
 
     @Column(name = "first_name", nullable = false)
     private String firstName;
