@@ -32,8 +32,6 @@ export default class Api {
 	}
 
 
-
-
 	public async request<RequestType, ResponseType>(config: AxiosRequestConfig) {
 		const headers: RawAxiosRequestHeaders = {
 			"Content-Type": "application/json",

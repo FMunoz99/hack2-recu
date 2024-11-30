@@ -107,8 +107,7 @@ const RegisterPage = () => {
                             required
                             className="w-full p-3 mt-1 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                         >
-                            <option value="client">Cliente</option>
-                            <option value="admin">Administrador</option>
+                            <option value="client">Usuario</option>
                         </select>
                     </div>
 

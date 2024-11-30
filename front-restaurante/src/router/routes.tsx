@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
         // Rutas protegidas
         {
           path: "home",
-          element: <ProtectedRoute element={<HomeCliente />} role="ROLE_CLIENT" />,
+          element: <ProtectedRoute element={<HomeCliente />} role="ROLE_USUARIO" />,
         },
 
         // Ruta comodín para errores
