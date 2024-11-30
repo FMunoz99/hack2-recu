@@ -1,0 +1,65 @@
+/* Estilos del botón para abrir y cerrar el sidebar */
+.sidebar-toggle-btn {
+    position: absolute;
+    top: 20px; /* Ajusta según sea necesario */
+    left: 20px; /* Ajusta según sea necesario */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }
+
+  /* Sidebar general */
+.sidebar {
+    position: fixed;  /* Fijo en la pantalla */
+    top: 0;
+    left: 0;
+    height: 100%; /* Ocupa toda la altura de la pantalla */
+    width: 0; /* Comienza cerrado */
+    overflow-x: hidden; /* Impide que se desplace el contenido horizontalmente */
+    background-color: #333; /* Color de fondo */
+    transition: 0.3s; /* Transición suave para la apertura */
+    padding-top: 60px; /* Espaciado superior */
+  }
+  
+  /* Estilo del ícono circular de usuario */
+  .sidebar-user-icon {
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* Estilos cuando el sidebar está abierto */
+  .sidebar.open {
+    width: 250px; /* Ancho del sidebar cuando está abierto */
+  }
+  
+  /* Estilos del menú desplegable */
+  .sidebar-dropdown-menu {
+    display: block;
+    background-color: #444;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .sidebar-button {
+    color: white;
+    background: none;
+    border: none;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  .sidebar-button:hover {
+    background-color: #575757;
+  }
+  
