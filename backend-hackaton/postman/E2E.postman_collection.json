@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "b8d4f5f2-0346-4f1b-9511-0d98a6805f53",
+		"name": "DBP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27024569",
+		"_collection_link": "https://restless-meadow-922782.postman.co/workspace/JeffreyWorkspace~7da7d723-dc62-4262-8340-a7a455d30de3/collection/27024569-b8d4f5f2-0346-4f1b-9511-0d98a6805f53?action=share&source=collection_link&creator=27024569"
+	},
+	"item": [
+		{
+			"name": "Lab-e2e-05",
+			"item": [
+				{
+					"name": "auth",
+					"item": [
+						{
+							"name": "registerDriver",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": ""
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"Jeff\",\r\n    \"lastName\": \"Monja\",\r\n    \"email\": \"rames@upc.edu.pe\",\r\n    \"password\": \"123456\",\r\n    \"phone\": \"999999999\",\r\n    \"isDriver\": 1,\r\n    \"category\": \"X\",\r\n    \"vehicle\": {\r\n        \"brand\": \"Audi\",\r\n        \"model\": \"R8\",\r\n        \"licensePlate\": \"ABC-123\",\r\n        \"fabricationYear\": 2020,\r\n        \"capacity\": 5\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:8080/auth/register"
+							},
+							"response": []
+						},
+						{
+							"name": "registerPassenger",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": ""
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"email\": \"john.doe@gmail.edu.pe\",\r\n    \"password\": \"XYZ987\",\r\n    \"phone\": \"987654321\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:8080/auth/register"
+							},
+							"response": []
+						},
+						{
+							"name": "login",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": ""
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"jmonja@utec.edu.pe\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:8080/auth/login"
+							},
+							"response": []
+						},
+						{
+							"name": "test_connection",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": "localhost:8080/auth/test/connection"
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "passenger",
+					"item": [
+						{
+							"name": "passengerMe",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqbW9uamFAdXRlYy5lZHUucGUiLCJyb2xlIjoiUk9MRV9QQVNTRU5HRVIiLCJpYXQiOjE3MTY1NjkwMDksImV4cCI6MTcxNjYwNTAwOX0.Zev2z_PhHjHe1IJ8mBU-w2Uo1gtiZ4JDgJ4gHAKiuKw"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "localhost:8080/passenger/me"
+							},
+							"response": []
+						},
+						{
+							"name": "addPassengerPlace",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqbW9uamFAdXRlYy5lZHUucGUiLCJyb2xlIjoiUk9MRV9QQVNTRU5HRVIiLCJpYXQiOjE3MTYyNjYxMDYsImV4cCI6MTcxNjMwMjEwNn0.WBSi0tdKVDzJQR16IGHvImlS1VQkr39xIJkMTnfQ3e0"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"latitude\": 1.2,\r\n    \"longitude\": 2.2,\r\n    \"description\": \"Test place\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:8080/passenger/places"
+							},
+							"response": []
+						},
+						{
+							"name": "getPassengerPlaces",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqbW9uamFAdXRlYy5lZHUucGUiLCJyb2xlIjoiUk9MRV9QQVNTRU5HRVIiLCJpYXQiOjE3MTYyNjYxMDYsImV4cCI6MTcxNjMwMjEwNn0.WBSi0tdKVDzJQR16IGHvImlS1VQkr39xIJkMTnfQ3e0"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "localhost:8080/passenger/places"
+							},
+							"response": []
+						},
+						{
+							"name": "deletePassenger",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "ride",
+					"item": [
+						{
+							"name": "passengerBookRide",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqbW9uamFAdXRlYy5lZHUucGUiLCJyb2xlIjoiUk9MRV9QQVNTRU5HRVIiLCJpYXQiOjE3MTY3OTAwODksImV4cCI6MTcxNjgyNjA4OX0.oI4oPoSwLLMdrbr24Z26nIH_CH_oYAOxaZQFpvok_fc"
+									}
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"originName\": \"SMP\",\r\n    \"destinationName\": \"Callao\",\r\n    \"price\": 19.70,\r\n    \"originCoordinates\": {\r\n        \"latitude\": 1.1,\r\n        \"longitude\": 2.2\r\n    },\r\n    \"destinationCoordinates\": {\r\n        \"latitude\": 1.1,\r\n        \"longitude\": 2.2\r\n    }\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": "localhost:8080/ride/request"
+							},
+							"response": []
+						},
+						{
+							"name": "getRidesByUser",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLmRvZUB1dGVjLmVkdS5wZSIsInJvbGUiOiJST0xFX0RSSVZFUiIsImlhdCI6MTcxNjc3MzgzNywiZXhwIjoxNzE2ODA5ODM3fQ.HQnBXuAwlO1Et9aHagOQ9tQBC94wQCi-AZMHiCWShjc"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/ride/user?page=0&size=10",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ride",
+										"user"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "driverAssignRide",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2huLmRvZUB1dGVjLmVkdS5wZSIsInJvbGUiOiJST0xFX0RSSVZFUiIsImlhdCI6MTcxNjc5MDEzNywiZXhwIjoxNzE2ODI2MTM3fQ.sbZmXQZxk2rGc41w1HlVmNn7M3olUFGUeCB36ovyVbE"
+									}
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": "localhost:8080/ride/assign/2"
+							},
+							"response": []
+						},
+						{
+							"name": "updateRideStatus",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": ""
+									}
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/ride/2/status?status=COMPLETED",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"ride",
+										"2",
+										"status"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": "COMPLETED"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "driver",
+					"item": [
+						{
+							"name": "driverMe",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": {
+										"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqbW9uamFAdXRlYy5lZHUucGUiLCJyb2xlIjoiUk9MRV9QQVNTRU5HRVIiLCJpYXQiOjE3MTYzMDQyNzIsImV4cCI6MTcxNjM0MDI3Mn0.PHGr1-CeZbqYkk0PN8vkRNhU3lrUGTqHRI98fJM83m8"
+									}
+								},
+								"method": "GET",
+								"header": [],
+								"url": "localhost:8080/driver/me"
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
