@@ -25,6 +25,5 @@ public class Message {
     @Enumerated(EnumType.STRING)
     private Sender sender;  // Asumiendo que 'Sender' es una enumeración
 
-    @Enumerated(EnumType.STRING)
-    private aiModel aimodel; // Asumiendo que 'aiModel' es una enumeración
+    private String aimodel; // Asumiendo que 'aiModel' es una enumeración
 }

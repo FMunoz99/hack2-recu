@@ -113,6 +113,28 @@
             <version>1.14.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-ai-inference</artifactId>
+            <version>1.0.0-beta.2</version> <!-- Última versión disponible -->
+        </dependency>
+
+
+        <!-- Dependencia para la autenticación en Azure (incluye BearerTokenCredential) -->
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-identity</artifactId>
+            <version>1.5.2</version> <!-- Verifica la última versión disponible -->
+        </dependency>
+
+        <!-- Otras dependencias necesarias, como HTTP client -->
+        <dependency>
+            <groupId>com.azure</groupId>
+            <artifactId>azure-core</artifactId>
+            <version>1.24.0</version> <!-- Verifica la última versión disponible -->
+        </dependency>
+
+
 
     </dependencies>
 

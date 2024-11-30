@@ -13,6 +13,6 @@ public class MessageRequest {
 
     private String content;
 
-    private aiModel aimodel;
+    private String aimodel;
 
 }
