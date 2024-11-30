@@ -1,8 +1,4 @@
 export interface MessageRequest {
-    chatID: string;  
-    aiModel: string; 
-    sender: "user" | "ai";  
-    content: string;  
-    timestamp: string; 
-  }
-  
+  chatID: string;             // Identificador del chat
+  aiModel: "GPT4" | "GPT4mini";  // Modelo de IA utilizado (GPT4 o GPT4mini)
+}
