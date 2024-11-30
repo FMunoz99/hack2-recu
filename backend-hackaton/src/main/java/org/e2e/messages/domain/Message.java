@@ -1,14 +1,15 @@
 package org.e2e.messages.domain;
 
-
 import jakarta.persistence.*;
 import lombok.Data;
 import org.e2e.chat.Chat;
 
 import java.time.ZonedDateTime;
+
 @Data
 @Entity
 public class Message {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
@@ -17,18 +18,13 @@ public class Message {
 
     private ZonedDateTime creationDate;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "chat_id")  // Esto es opcional si prefieres el nombre por defecto
     private Chat chat;
 
-    private Sender sender;
+    @Enumerated(EnumType.STRING)
+    private Sender sender;  // Asumiendo que 'Sender' es una enumeración
 
-    private aiModel aimodel;
-
-
-
-
-
-
-
-
+    @Enumerated(EnumType.STRING)
+    private aiModel aimodel; // Asumiendo que 'aiModel' es una enumeración
 }

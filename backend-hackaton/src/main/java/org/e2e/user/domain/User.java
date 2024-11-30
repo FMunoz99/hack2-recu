@@ -16,6 +16,7 @@ import java.util.List;
 @Table(name = "users")
 @Inheritance(strategy = InheritanceType.JOINED)
 public class User implements UserDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
@@ -23,7 +24,7 @@ public class User implements UserDetails {
     @Column(name = "role", nullable = false)
     private Role role;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Chat> chat;
 
     @Column(name = "first_name", nullable = false)
@@ -40,12 +41,6 @@ public class User implements UserDetails {
 
     @Column(name = "phone_number", nullable = false)
     private String phoneNumber;
-
-    @Column(name = "trips", columnDefinition = "integer default 0")
-    private Integer trips;
-
-    @Column(name = "avg_rating", columnDefinition = "float default 0")
-    private Float avgRating;
 
     @Column(name = "created_at", nullable = false)
     private ZonedDateTime createdAt;
