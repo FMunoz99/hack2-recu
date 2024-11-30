@@ -2,7 +2,6 @@ package org.e2e;
 
 import org.e2e.auth.exceptions.UserAlreadyExistException;
 import org.e2e.exceptions.ResourceNotFoundException;
-import org.e2e.passenger.exceptions.UnauthorizeOperationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -33,11 +32,6 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         return e.getMessage();
     }
 
-    @ExceptionHandler(UnauthorizeOperationException.class)
-    @ResponseStatus(HttpStatus.FORBIDDEN)
-    public String handleUnauthorizeOperationException(UnauthorizeOperationException e) {
-        return e.getMessage();
-    }
 
     @ExceptionHandler(AuthenticationException.class)
     @ResponseStatus(HttpStatus.FORBIDDEN)

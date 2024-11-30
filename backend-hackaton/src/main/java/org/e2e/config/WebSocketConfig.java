@@ -1,6 +1,6 @@
 package org.e2e.config;
 
-import org.e2e.passenger.exceptions.UnauthorizeOperationException;
+
 import org.e2e.user.domain.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -68,13 +68,13 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                                 authToken,
                                 userDetails.getAuthorities());
 
-                        if (StringUtils.hasText(userEmail) && SecurityContextHolder.getContext().getAuthentication() == null)
-                            jwtService.validateToken(authToken, userEmail);
-                        else
-                            throw new UnauthorizeOperationException("Unauthorized message");
-
-                        accessor.setUser(user);
-                        break;
+//                        if (StringUtils.hasText(userEmail) && SecurityContextHolder.getContext().getAuthentication() == null)
+//                            jwtService.validateToken(authToken, userEmail);
+//                        else
+//                            throw new UnauthorizeOperationException("Unauthorized message");
+//
+//                        accessor.setUser(user);
+//                        break;
                     case SEND:
                         Principal principal = accessor.getUser();
                         if (principal != null)
