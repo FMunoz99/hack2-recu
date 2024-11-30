@@ -38,7 +38,7 @@ const LoginPage = () => {
         login(loginRequest)
             .then(() => {
                 console.log('Inicio de sesión exitoso');
-                navigate('/productos'); // Redirige a la página de productos después de un inicio de sesión exitoso
+                navigate('/api/chats'); // Redirige a la página de productos después de un inicio de sesión exitoso
             })
             .catch((error) => {
                 console.error('Error en el inicio de sesión:', error);
